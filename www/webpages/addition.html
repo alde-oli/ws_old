@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculatrice Addition</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f427;
+    background-image: url("../img/maths.gif");
+    background-size: 100% 100%;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #a709f0;
+    font-size: 5em; /* Plus grande taille pour les titres */
+}
+
+form {
+    background-color: #00f1b1f0;
+    background-image: url("../img/cursed-doggo.jpg");
+    background-size: 100% 100%;
+    padding: 1.5em;
+    border-radius: 1em;
+    display: inline-block;
+    font-size: 2.5em; /* Taille de police plus grande pour le formulaire */
+}
+
+input[type=number], input[type=submit], .bouton-calcul {
+    padding: 0.4em;
+    margin: 0em;
+    border: 0.2em solid #22ff00;
+    background-color: #714512b8;
+    border-radius: 10em;
+    font-size: 2em; /* Taille de police plus grande pour les champs d'entrée */
+    text-align: center;
+}
+
+input[type=submit] {
+    color: rgb(249, 0, 0);
+    background-color: #007bff2c;
+    cursor: pointer;
+    font-size: 2.5em; /* Taille de police plus grande pour le bouton */
+    font-weight: bolder;
+}
+
+input[type=submit]:hover {
+    background-color: #0056b3;
+}
+
+.bouton-calcul {
+    color: rgb(249, 0, 0);
+    background-color: #007bff2c;
+    cursor: pointer;
+    font-size: 2.5em; /* Taille de police plus grande pour le bouton */
+    font-weight: bolder;
+}
+
+.bouton-calcul:hover {
+    background-color: #0056b3;
+}
+
+
+label {
+    font-weight: bold;
+    display: block; /* Rend les labels plus lisibles en les plaçant au-dessus des champs */
+    margin-bottom: 5px;
+}
+
+footer {
+    background-color: #897867;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+    <h1>Calculatrice Addition</h1>
+    <form id="calculatriceForm" action="/cgi/addition.py" method="post">
+        <label for="num1">Nombre 1:</label>
+        <input type="number" id="num1" name="num1"><br><br>
+        <label for="num2">Nombre 2:</label>
+        <input type="number" id="num2" name="num2"><br><br>
+        <input type="submit" value="POST">
+        <button type="button" onclick="envoyerEnGet()" class="bouton-calcul">GET</button>
+    </form>
+
+    <script>
+        function envoyerEnGet() {
+            var form = document.getElementById('calculatriceForm');
+            form.method = 'get';
+            form.submit();
+        }
+    </script>
+</body>
+<footer>
+    <p><a href="index.html">Page principale</a></p>
+</footer>
+</html>
+

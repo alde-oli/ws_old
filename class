@@ -1,0 +1,40 @@
+// class serverconfig
+-name
+-sockaddr_in ip + port
+-isdefault
+-default error page
+-body size limit
+-
+
+// class error type
+-map [errorcode][errorpage.html]
+
+// class ROUTES
+-route path
+-route root
+-default page
+-route method
+
+
+// class CGI ?
+-extensions
+-paths
+
+
+// class server
+
+// class HttpServer
+
+// class HttpRequest
+
+// class GETRequest : public HttpRequest
+
+// class POSTRequest : public HttpRequest
+
+// class DELETERequest : public HttpRequest
+
+// class HttpResponse
+
+//class sockets
+
+//class MultipartFormData

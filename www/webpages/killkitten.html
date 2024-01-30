@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Suppression de Fichier</title>
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+iframe {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    background-color: #d06b00;
+    color: rgb(4, 0, 255);
+    padding: 10px 0;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+ul li {
+    display: inline;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s; /* Animation douce */
+}
+
+ul li a {
+    color: inherit; /* Hérite la couleur du parent (li) */
+    text-decoration: none; /* Supprime le soulignement par défaut des liens */
+    padding: 10px; /* Ajout de padding pour augmenter la zone cliquable */
+}
+
+ul li a:hover {
+    transform: scale(1.1); /* Agrandit l'élément */
+    background-color: #f4f4f4; /* Change la couleur de fond au survol */
+    color: #000000; /* Change la couleur du texte au survol */
+    /* Ajoutez ici le background-image si nécessaire */
+    background-image: url("../img/suisse.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 4em 6em;
+    font-size: 1.5em;
+}
+
+footer {
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    width: 100%;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    iframe {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var iframe = document.getElementById('fileListFrame');
+        iframe.onload = function() {
+            var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+            var fileList = iframeDocument.getElementsByTagName('li');
+            for (var i = 0; i < fileList.length; i++) {
+                (function() {
+                    var fileName = fileList[i].innerText;
+                    var deleteButton = document.createElement('button');
+                    deleteButton.innerText = 'Supprimer ' + fileName;
+                    deleteButton.onclick = function() {
+                        deleteFile(fileName);
+                    };
+
+                    fileList[i].innerHTML = '';
+                    fileList[i].appendChild(deleteButton);
+                })(); // IIFE (Immediately Invoked Function Expression) pour gérer correctement la portée de la variable fileName
+            }
+        };
+    });
+
+    function deleteFile(fileName) {
+        fetch(`kittenland/${fileName}`, { method: 'DELETE' })
+        .then(response => response.text())
+        .then(data => {
+            alert("Résultat de la suppression: " + data);
+            location.reload(); // Recharger l'iframe après la suppression
+        })
+        .catch(error => console.error('Erreur:', error));
+    }
+</script>
+
+</head>
+<body onload="transformFileList()">
+    <h1>Supprimer un Fichier dans Kittenland</h1>
+    <iframe id="fileListFrame" src="cgi/altlistfiles.py?directory=/Users/alde-oli/Desktop/ws_old/www/webpages/kittenland" style="width:100%; height:300px;"></iframe>
+</body>
+<footer>
+    <p><a href="index.html">Page principale</a></p>
+</footer>
+</html>

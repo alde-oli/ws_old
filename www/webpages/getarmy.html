@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Téléchargement de Fichiers</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+iframe {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+footer {
+    background-color: #897867;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+</style>
+<script>
+    function transformFileList(iframe) {
+        var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+        var fileList = iframeDocument.getElementsByTagName('li');
+        for (var i = 0; i < fileList.length; i++) {
+            var fileName = fileList[i].innerText;
+            var downloadLink = document.createElement('a');
+            downloadLink.href = `/download/${fileName}`; // Modifier le chemin selon la configuration de votre serveur
+            downloadLink.innerText = fileName;
+            downloadLink.download = fileName;
+
+            fileList[i].innerHTML = '';
+            fileList[i].appendChild(downloadLink);
+        }
+    }
+</script>
+</head>
+<body>
+    <h1>Télécharger des Fichiers depuis le Dossier Download</h1>
+    <iframe id="fileListFrame" src="/cgi/mylistfiles.py?directory=/Users/alde-oli/Desktop/ws_old/www/webpages/download" onload="transformFileList(this)" style="width:100%; height:300px;"></iframe>
+</body>
+<footer>
+    <p><a href="index.html">Page principale</a></p>
+</footer>
+</html>

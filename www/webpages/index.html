@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Votre Site Web</title>
+    <style>
+        /* Style général */
+
+
+body {
+    font-family: 'comic sans ms', sans-serif;
+    font-weight: bold;
+    font-size: 150%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-image: url("../img/hello-kitty.gif");
+}
+
+/* Titre en haut */
+header {
+    background-color: #4c3612e2;
+    border-radius: 60px;
+    border: 1EM solid #96dfe8;
+    text-align: center; /* Centrer le contenu */
+    margin: 0.6em;
+    padding-left: 2em; /* Ajoutez un padding pour espacer le texte des bords */
+    padding-right: 2em;
+    display: inline-block;
+}
+
+header h1 {
+    display: inline-block; /* Rend le header h1 s'ajuster à son contenu */
+    margin: 0; /* Supprime la marge par défaut */
+    color: rgb(52, 106, 77);
+    font-weight: bolder;
+    font-size: 5em;
+}
+
+
+/* Banderole de navigation */
+nav {
+    background-color: #d06b00;
+    color: rgb(4, 0, 255);
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    display: inline;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s; /* Animation douce */
+}
+
+nav ul li a {
+    color: inherit; /* Hérite la couleur du parent (li) */
+    text-decoration: none; /* Supprime le soulignement par défaut des liens */
+    padding: 10px; /* Ajout de padding pour augmenter la zone cliquable */
+}
+
+nav ul li a:hover {
+    transform: scale(1.1); /* Agrandit l'élément */
+    background-color: #f4f4f4; /* Change la couleur de fond au survol */
+    color: #000000; /* Change la couleur du texte au survol */
+    /* Ajoutez ici le background-image si nécessaire */
+    background-image: url("../img/suisse.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 4em 6em;
+    font-size: 1.5em;
+}
+
+nav a {
+    color: rgb(232, 167, 254);
+    text-decoration: none;
+    border: 0.3em solid rgb(0, 17, 255);
+    border-radius: 15px;
+    padding: 10px 20px;
+}
+
+/* Section À propos */
+.a-propos {
+    background-color: #fff700c7;
+    font-style:oblique;
+    border-radius: 10em;
+    border-style: dotted;
+    border-color: #26ff00;
+    border-width: 0.6em;
+    padding: 0em;
+    text-align: center;
+    display: flex;
+    margin: 0em;
+    justify-content: space-around;
+}
+
+.a-propos-texte {
+    background-color: #a36ffdbb;
+    border-radius: 10000em;
+    border-width: 1em;
+    border-style:double;
+    border-color: darkolivegreen;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+h2 {
+    font-size: 3em;
+    color: #ff0000;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section principale */
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+.image-gauche, .image-droite {
+    border-image: url("../img/hearts.jpg") 30 fill round;
+    border-image-slice: 50; 
+    border-image-width: 50px; /* Réduire l'épaisseur de la bordure */
+    border-radius: 0em;
+    padding: 30px; /* Réduire le padding */
+    max-width: 15%; /* Réduire la largeur maximale de l'élément */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto; /* Ajouté pour centrer l'élément dans son conteneur */
+}
+
+.image-gauche img, .image-droite img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+
+
+.texte-centre {
+    flex: 2;
+    padding: 0 20px;
+}
+
+/* Pied de page */
+footer {
+    background-color: #897867;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Titre en haut -->
+    <header>
+        <h1>QUOICOUCOU LES QUOICOUBEBOUH</h1>
+    </header>
+
+    <!-- Banderole de navigation -->
+    <nav>
+        <ul>
+            <li><a href="addition.html">apprendre les additions</a></li>
+            <li><a href="killkitten.html">massacrer des chatons</a></li>
+            <li><a href="getarmy.html">récupérer des soldats</a></li>
+            <li><a href="invade.html">envahir chatonland</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section À propos -->
+    <section class="a-propos">
+        <h2>cekikonest</h2>
+    </section>
+
+    <!-- Section principale avec images et texte -->
+    <main>
+        <div class="image-gauche">
+            <!-- Image gauche -->
+            <img src="img/alde-oli.gif" alt="Image Gauche">
+        </div>
+        <div class="texte-centre">
+            <!-- Texte central -->
+            <p class="a-propos-texte">
+                On est les createurs de ce site fabuleux.<br>
+                il est vraiment trop bien.<br>
+                on est trop puissant t'as capté le sang !<br>
+                On vit dans une saucisse<br>
+                sois honoré de parcourir les sentiers de notre création divine!<br>
+                on est les plus forts!<br>
+                on est les plus intelligents!<br>
+                on est les plus riches!<br>
+                on a dead ça chackal!<br>
+                bizou
+            
+            </p>
+        </div>
+        <div class="image-droite">
+            <!-- Image droite -->
+            <img src="img/cduffaut.gif" alt="Image Droite">
+        </div>
+    </main>
+
+    <!-- Pied de page avec mentions légales et contacts -->
+    <footer>
+        <p><a href="legal.html"> Mentions légales</a></p>
+        <p>Contact: emailfrauduleux@gmailripoff.comme || +42 21 84 126</p>
+    </footer>
+
+</body>
+</html>
