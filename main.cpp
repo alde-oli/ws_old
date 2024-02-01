@@ -163,7 +163,8 @@ int setupServerSocket()
 
 	// Définir l'adresse du serveur
 	address.sin_family = AF_INET;
-	address.sin_addr.s_addr = inet_addr("127.0.0.1");
+	address.sin_addr.s_addr = inet_addr("10.11.14.5");	
+
 	address.sin_port = htons(PORT);
 
 	// Lier le socket
